@@ -7,4 +7,10 @@ public interface PokemonApi {
     @GET("/api/v2/pokemon")
     Call<RestPokemonResponse> getPokemonResponse();
 
+    //@GET("/api/v2/pokemon")
+    //Call<RestPokemonResponse> getPokemonResponse();
+
+    //@GET("/api/v2/pokemon/{id}")
+    //Call<RestIdResponse> getPokemonResponse();
+
 }
