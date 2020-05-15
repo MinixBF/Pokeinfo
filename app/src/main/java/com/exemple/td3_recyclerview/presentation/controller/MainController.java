@@ -97,6 +97,7 @@ public class MainController {
             Type listType = new TypeToken<List<Pokemon>>() {}.getType();
             return gson.fromJson(jsonPokemon, listType);
         }
+
     }
 
 }
