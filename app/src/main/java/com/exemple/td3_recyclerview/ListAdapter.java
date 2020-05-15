@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.exemple.td3_recyclerview.presentation.model.Pokemon;
+
 import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
@@ -46,13 +48,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     // Create new views (invoked by the layout manager)
     @Override
-    public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                     int viewType) {
+    public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
-        LayoutInflater inflater = LayoutInflater.from(
-                parent.getContext());
-        View v =
-                inflater.inflate(R.layout.row_layout, parent, false);
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View v = inflater.inflate(R.layout.row_layout, parent, false);
         // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v);
         return vh;

@@ -1,4 +1,6 @@
-package com.exemple.td3_recyclerview;
+package com.exemple.td3_recyclerview.data;
+
+import com.exemple.td3_recyclerview.presentation.model.RestPokemonResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

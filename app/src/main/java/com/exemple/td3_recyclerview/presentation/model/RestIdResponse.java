@@ -1,4 +1,4 @@
-package com.exemple.td3_recyclerview;
+package com.exemple.td3_recyclerview.presentation.model;
 
 public class RestIdResponse {
 
