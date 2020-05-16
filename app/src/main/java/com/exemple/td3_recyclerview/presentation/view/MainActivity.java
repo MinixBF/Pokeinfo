@@ -1,6 +1,5 @@
 package com.exemple.td3_recyclerview.presentation.view;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -8,11 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.exemple.td3_recyclerview.ListAdapter;
 import com.exemple.td3_recyclerview.R;
+import com.exemple.td3_recyclerview.Singletons;
 import com.exemple.td3_recyclerview.presentation.controller.MainController;
 import com.exemple.td3_recyclerview.presentation.model.Pokemon;
-import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
@@ -30,10 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         controller = new MainController(
                 this,
-                new GsonBuilder()
-                        .setLenient()
-                        .create(),
-                getSharedPreferences("application_esiea", Context.MODE_PRIVATE)
+                Singletons.getGson(),
+                Singletons.getShardPreferences(getApplicationContext())
         );
         controller.onStart();
     }
@@ -45,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new ListAdapter(pokemonList);
+        mAdapter = new ListAdapter(pokemonList, listener);
         recyclerView.setAdapter(mAdapter);
     }
 
