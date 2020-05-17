@@ -1,5 +1,6 @@
 package com.exemple.td3_recyclerview.presentation.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -13,6 +14,8 @@ import com.exemple.td3_recyclerview.presentation.controller.MainController;
 import com.exemple.td3_recyclerview.presentation.model.Pokemon;
 
 import java.util.List;
+
+import static com.exemple.td3_recyclerview.Constants.KEY_POKEMON;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,11 +40,15 @@ public class MainActivity extends AppCompatActivity {
     public void showList(List<Pokemon> pokemonList) {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        // use a linear layout manager
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new ListAdapter(pokemonList, listener);
+        mAdapter = new ListAdapter(pokemonList, new ListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Pokemon item) {
+                controller.OnItemClick(item);
+            }
+        });
         recyclerView.setAdapter(mAdapter);
     }
 
@@ -49,4 +56,9 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "API Error", Toast.LENGTH_SHORT).show();
     }
 
+    public void navigateToDetails(Pokemon pokemon) {
+        Intent myIntent = new Intent(MainActivity.this, DetailActivity.class);
+        myIntent.putExtra(KEY_POKEMON,Singletons.getGson().toJson(pokemon));
+        MainActivity.this.startActivity(myIntent);
+    }
 }
