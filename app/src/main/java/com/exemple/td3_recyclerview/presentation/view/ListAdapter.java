@@ -1,4 +1,4 @@
-package com.exemple.td3_recyclerview;
+package com.exemple.td3_recyclerview.presentation.view;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,16 +7,19 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.exemple.td3_recyclerview.R;
 import com.exemple.td3_recyclerview.presentation.model.Pokemon;
 
 import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<Pokemon> values;
+    private final OnItemClickListener listener;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
+    public interface OnItemClickListener {
+        void onItemClick(Pokemon item);
+    }
+
      class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         TextView txtHeader;
@@ -42,8 +45,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public ListAdapter(List<Pokemon> myDataset) {
-        values = myDataset;
+    public ListAdapter(List<Pokemon> myDataset, OnItemClickListener listener) {
+        this.values = myDataset;
+        this.listener = listener;
     }
 
     // Create new views (invoked by the layout manager)
@@ -66,14 +70,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         holder.txtHeader.setText(currentPokemon.getName());
         holder.txtFooter.setText(currentPokemon.getUrl());
 
-        /*
-        holder.txtHeader.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                remove(position);
-            }
-        });
-        */
+         holder.itemView.setOnClickListener(new View.OnClickListener() {
+        @Override public void onClick(View v) {
+            listener.onItemClick(currentPokemon);
+        }});
     }
 
     // Return the size of your dataset (invoked by the layout manager)
