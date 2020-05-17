@@ -70,7 +70,6 @@ public class MainController {
         String jsonString = gson.toJson(pokemonList);
         sharedPreferences
                 .edit()
-                //.putInt("cle_integer", 3)
                 .putString(Constants.KEY_POKEMON_LIST, jsonString)
                 .apply();
 
@@ -88,7 +87,6 @@ public class MainController {
             Type listType = new TypeToken<List<Pokemon>>() {}.getType();
             return gson.fromJson(jsonPokemon, listType);
         }
-
     }
 
     public void OnItemClick(Pokemon pokemon) {

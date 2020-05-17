@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new ListAdapter(pokemonList, new ListAdapter.OnItemClickListener() {
+        mAdapter = new ListAdapter(pokemonList, new ListAdapter.OnItemClickListener(){
             @Override
             public void onItemClick(Pokemon item) {
                 controller.OnItemClick(item);

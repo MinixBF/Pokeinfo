@@ -7,7 +7,7 @@ public class RestIdResponse {
     private Integer height;
     private Integer weight;
     private Integer base_experience;
-    //private Sprite sprites;
+
 
     public Integer getId() {
         return id;
@@ -29,7 +29,6 @@ public class RestIdResponse {
         return base_experience;
     }
 
-   // public Sprite getSprites() { return sprites; }
 
 
 

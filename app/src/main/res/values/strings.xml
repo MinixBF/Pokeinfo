@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">TD3_RecyclerView</string>
+    <string name="app_name">Pokeinfo</string>
     <string name="detail_text_description">Ecran Detail</string>
 </resources>
