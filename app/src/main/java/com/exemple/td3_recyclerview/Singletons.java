@@ -42,4 +42,5 @@ public class Singletons {
         }
         return sharedPreferencesInstance;
     }
+
 }

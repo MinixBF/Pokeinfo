@@ -8,14 +8,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.exemple.td3_recyclerview.Constants;
 import com.exemple.td3_recyclerview.R;
 import com.exemple.td3_recyclerview.Singletons;
 import com.exemple.td3_recyclerview.presentation.controller.MainController;
 import com.exemple.td3_recyclerview.presentation.model.Pokemon;
 
 import java.util.List;
-
-import static com.exemple.td3_recyclerview.Constants.KEY_POKEMON;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void navigateToDetails(Pokemon pokemon) {
         Intent myIntent = new Intent(MainActivity.this, DetailActivity.class);
-        myIntent.putExtra(KEY_POKEMON,Singletons.getGson().toJson(pokemon));
+        myIntent.putExtra(Constants.KEY_POKEMON,Singletons.getGson().toJson(pokemon));
         MainActivity.this.startActivity(myIntent);
     }
 }

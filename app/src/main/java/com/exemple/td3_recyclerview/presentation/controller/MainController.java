@@ -23,6 +23,7 @@ public class MainController {
     private SharedPreferences sharedPreferences;
     private Gson gson;
     private MainActivity view;
+    private DetailController detailController;
 
     public MainController(MainActivity mainActivity, Gson gson, SharedPreferences sharedPreferences){
         this.view = mainActivity;
@@ -39,7 +40,6 @@ public class MainController {
             makeApiCall();
         }
     }
-
 
     private void makeApiCall(){
 
@@ -90,6 +90,6 @@ public class MainController {
     }
 
     public void OnItemClick(Pokemon pokemon) {
-        view.navigateToDetails(pokemon);
-    }
+            view.navigateToDetails(pokemon);
+        }
 }

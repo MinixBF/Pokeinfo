@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Pokeinfo</string>
-    <string name="detail_text_description">Ecran Detail</string>
+    <string name="detail_text_description">Name</string>
+    <string name="detail_text_basexp">Basexp</string>
+    <string name="detail_text_nature">Type</string>
+    <string name="detail_text_height">Hauteur</string>
+    <string name="detail_text_weight">Largeur</string>
 </resources>

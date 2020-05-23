@@ -4,6 +4,8 @@ public class Pokemon {
     private int number;
     private String url;
     private String name;
+    private int height;
+    private int weight;
 
     public String getUrl() { return url; }
     public void setUrl(String url) { this.url = url; }
@@ -17,9 +19,26 @@ public class Pokemon {
         String[] urlPart = url.split("/");
         return Integer.parseInt(urlPart[urlPart.length - 1]);
     }
-
     public void setNumber(int number){
         this.number = number;
+    }
+
+    public int getHeight()
+    {
+        return height;
+    }
+    public void setHeight(int height)
+    {
+        this.height = height;
+    }
+
+    public int getWeight()
+    {
+        return weight;
+    }
+    public void setWeight(int weight)
+    {
+        this.weight = weight;
     }
 
 }

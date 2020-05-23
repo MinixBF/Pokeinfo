@@ -1,15 +1,19 @@
 package com.exemple.td3_recyclerview.presentation.model;
 
+import java.util.List;
+
 public class RestIdResponse {
 
-    private Integer id;
+    private int id;
     private String name;
-    private Integer height;
-    private Integer weight;
-    private Integer base_experience;
+    private int height;
+    private int weight;
+    private int base_experience;
+    private List<Pokemon_Abilities> abilities;
+    private List<Pokemon_Type> type;
 
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
@@ -17,21 +21,26 @@ public class RestIdResponse {
         return name;
     }
 
-    public Integer getHeight() {
+    public int getHeight() {
         return height;
     }
+    public void setHeight(int height){this.height = height; }
 
-    public Integer getWeight() {
+    public int getWeight() {
         return weight;
     }
+    public void setWeight(int weight){this.weight = weight; }
 
-    public Integer getBase_experience() {
+    public int getBase_experience() {
         return base_experience;
     }
 
+    public List<Pokemon_Abilities> getAbilities() {
+        return abilities;
+    }
 
-
-
-
+    public List<Pokemon_Type> getType() {
+        return type;
+    }
 
 }
