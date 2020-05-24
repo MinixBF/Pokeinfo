@@ -13,15 +13,22 @@ import com.exemple.td3_recyclerview.R;
 import com.exemple.td3_recyclerview.Singletons;
 import com.exemple.td3_recyclerview.presentation.controller.MainController;
 import com.exemple.td3_recyclerview.presentation.model.Pokemon;
+import com.mancj.materialsearchbar.MaterialSearchBar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ListAdapter mAdapter;
+    private ListAdapter searchAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private MainController controller;
+    private MaterialSearchBar searchBar;
+
+    private List<String> lastSearch = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +43,12 @@ public class MainActivity extends AppCompatActivity {
         controller.onStart();
     }
 
-    public void showList(List<Pokemon> pokemonList) {
+    public void showList(final List<Pokemon> pokemonList) {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+
 
         mAdapter = new ListAdapter(pokemonList, new ListAdapter.OnItemClickListener(){
             @Override
@@ -50,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         });
         recyclerView.setAdapter(mAdapter);
     }
+
 
     public void showError() {
         Toast.makeText(getApplicationContext(), "API Error", Toast.LENGTH_SHORT).show();

@@ -16,15 +16,14 @@ import com.exemple.td3_recyclerview.presentation.model.Pokemon;
 import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
-    private List<Pokemon> values;
-    private final OnItemClickListener listener;
+    private List<Pokemon> valuesPokemon;
+    private OnItemClickListener listener;
 
     public interface OnItemClickListener {
         void onItemClick(Pokemon item);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
         TextView txtHeader;
         TextView txtFooter;
         ImageView imageView;
@@ -40,7 +39,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     public ListAdapter(List<Pokemon> myDataset, OnItemClickListener listener) {
-        this.values = myDataset;
+        this.valuesPokemon = myDataset;
         this.listener = listener;
     }
 
@@ -54,7 +53,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        final Pokemon currentPokemon = values.get(position);
+        final Pokemon currentPokemon = valuesPokemon.get(position);
         holder.txtHeader.setText(currentPokemon.getName());
         //holder.txtFooter.setText(currentPokemon.getUrl());
 
@@ -71,7 +70,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return values.size();
+        return valuesPokemon.size();
     }
 }
 
