@@ -9,18 +9,18 @@
 tools:context=".presentation.view.SplashScreenActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/logo"
         android:layout_width="367dp"
         android:layout_height="307dp"
-        android:layout_marginStart="98dp"
         android:layout_marginTop="252dp"
-        android:layout_marginEnd="99dp"
         android:layout_marginBottom="252dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_logo_pokemon_foreground" />
+        android:src="@drawable/logo" />
 
     <ProgressBar
         android:layout_width="wrap_content"
@@ -29,7 +29,7 @@ tools:context=".presentation.view.SplashScreenActivity">
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
         app:layout_constraintVertical_bias="0.20999998"
         />
 

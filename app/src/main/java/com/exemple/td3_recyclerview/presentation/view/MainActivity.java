@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 Singletons.getGson(),
                 Singletons.getShardPreferences(getApplicationContext())
         );
-        controller.onStart();
+        controller.onStart_Main();
     }
 
     public void showList(final List<Pokemon> pokemonList) {

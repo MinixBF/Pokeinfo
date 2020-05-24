@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface PokemonApi {
-    @GET("/api/v2/pokemon?offset=0&limit=60")
+    @GET("/api/v2/pokemon?offset=0&limit=500")
     Call<RestPokemonResponse> getPokemonResponse();
 
     @GET("/api/v2/pokemon/{id}/")

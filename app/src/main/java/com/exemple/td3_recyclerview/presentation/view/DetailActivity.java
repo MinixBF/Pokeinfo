@@ -36,14 +36,22 @@ public class DetailActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        detailController = new DetailController(this);
+        detailController = new DetailController(
+                this,
+                Singletons.getGson(),
+                Singletons.getShardPreferences(getApplicationContext()));
 
 
         Intent intent = getIntent();
         String pokemonJson = intent.getStringExtra(Constants.KEY_POKEMON);
         Pokemon pokemon = Singletons.getGson().fromJson(pokemonJson, Pokemon.class);
         printImageAndName(pokemon);
-        detailController.makeApiCallIdPokemon(pokemon.getNumber());
+        //int id_poke = detailActivity.getIntent().getIntExtra(Constants.KEY_ID_POKE, 1);
+
+        if( detailController.verifDataFromCache(pokemon.getNumber()) == 1){}
+        else{
+            detailController.makeApiCallIdPokemon(pokemon.getNumber());
+        }
     }
 
     public void showDetail(int Weight, int Height, int Basexp){

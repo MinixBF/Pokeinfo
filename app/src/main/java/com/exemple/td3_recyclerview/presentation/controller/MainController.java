@@ -31,7 +31,7 @@ public class MainController {
         this.sharedPreferences = sharedPreferences;
     }
 
-    public void onStart(){
+    public void onStart_Main(){
 
         List<Pokemon> pokemonList = getDataFromCache();
         if(pokemonList != null){

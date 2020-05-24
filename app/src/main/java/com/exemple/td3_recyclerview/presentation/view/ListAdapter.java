@@ -56,7 +56,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         final Pokemon currentPokemon = valuesPokemon.get(position);
         holder.txtHeader.setText(currentPokemon.getName());
         //holder.txtFooter.setText(currentPokemon.getUrl());
-
         Glide.with(holder.imageView)
                 .load(Constants.URL_IMAGE + currentPokemon.getNumber() + ".png")
                 .into(holder.imageView);
